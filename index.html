@@ -1,0 +1,324 @@
+<meta charset="utf-8">
+<title>Fares Alnajjar Portfolio</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Fares Alnajjar — Graphic & UI/UX Designer, Amman. Portfolio and CV.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800;900&display=swap">
+<link rel="stylesheet" href="style.css">
+
+<div class="loader" id="loader" aria-hidden="true"><div class="ld"><div class="mono">FA<em>.</em></div><div class="bar"><i id="ldbar"></i></div><div class="pct" id="ldpct">000</div></div></div>
+<div class="progress" aria-hidden="true"><i id="prog"></i></div>
+<div class="cur" id="cur" aria-hidden="true"></div><div class="cur-ring" id="ring" aria-hidden="true"><b id="ringlbl">View</b></div>
+<div class="guides" aria-hidden="true"><div class="wrap"><span></span><span></span><span></span><span></span></div></div>
+
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a href="#top" class="brand" aria-label="Fares Alnajjar"><span class="lg">FA</span><span class="ltr">Fares<span style="color:var(--accent)">.</span></span></a>
+    <ul>
+      <li><a href="#about"><span class="en">About</span><span class="ar">نبذة</span></a></li>
+      <li><a href="#erp"><span class="en">ERP Suite</span><span class="ar">منظومة ERP</span></a></li>
+      <li><a href="#planet">Planet Donuts</a></li>
+      <li><a href="#clients"><span class="en">Clients</span><span class="ar">العملاء</span></a></li>
+      <li><a href="#work"><span class="en">More work</span><span class="ar">أعمال أخرى</span></a></li>
+      <li><a href="#cv"><span class="en">CV</span><span class="ar">السيرة الذاتية</span></a></li>
+      <li><a href="#contact"><span class="en">Contact</span><span class="ar">التواصل</span></a></li>
+    </ul>
+    <div class="act">
+      <button class="pill lang" id="langBtn" type="button" aria-label="Switch language"><span class="en" style="font-family:'Thm Sans',sans-serif">عربي</span><span class="ar">EN</span></button>
+      <a class="pill solid cvbtn" href="Fares-Alnajjar-CV.pdf" target="_blank" rel="noopener" data-cv aria-label="CV"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-5-5m5 5l5-5M5 21h14"/></svg><span class="lbl"><span class="en">CV</span><span class="ar">السيرة</span></span></a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+<!-- HERO -->
+<section class="hero" id="hero">
+  <canvas id="hex" aria-hidden="true"></canvas>
+  <div class="mp-cursor" id="mp" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 2l7 19 2.5-8L21 10z" fill="#FFD900" stroke="#1a1300" stroke-width="1.2"/></svg><span>Fares</span></div>
+  <div class="wrap">
+    <div class="hero-txt">
+      <div class="eyebrow h-in"><span class="en">Graphic &amp; UI/UX Designer · Amman, Jordan</span><span class="ar">مصمم جرافيك وواجهات مستخدم · عمّان، الأردن</span></div>
+      <div class="name-frame h-in" id="nf">
+        <div class="sel" aria-hidden="true"></div>
+        <span class="lbl"><span>Frame · Hero</span><button type="button" class="reset" id="nfReset">Reset</button></span>
+        <span class="hint" aria-hidden="true"><span class="en">Drag the handles ↔</span><span class="ar">اسحب المقابض ↔</span></span>
+        <button class="hd" data-h="nw" aria-label="Resize" type="button"></button><button class="hd" data-h="ne" aria-label="Resize" type="button"></button>
+        <button class="hd" data-h="w" aria-label="Resize" type="button"></button><button class="hd" data-h="e" aria-label="Resize" type="button"></button>
+        <button class="hd" data-h="sw" aria-label="Resize" type="button"></button><button class="hd" data-h="se" aria-label="Resize" type="button"></button>
+        <h1 class="hname en" id="hn-en"><span class="w">Fares</span><span class="w">Alnajjar<span class="ac">.</span></span></h1>
+        <h1 class="hname ar" id="hn-ar"><span class="w sw">فارس</span><span class="w">النجّار<span class="ac">.</span></span></h1>
+        <span class="dim" id="dimlbl" aria-hidden="true">W 0 × H 0</span>
+      </div>
+      <p class="rot h-in"><span class="en">I design </span><span class="ar">أصمّم </span><b id="rot">ERP</b></p>
+      <div class="ctas h-in">
+        <a class="btn pri" href="#erp"><span class="en">Explore my work</span><span class="ar">استعرض أعمالي</span><svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14m-6-6l6 6-6 6"/></svg></a>
+        <a class="btn" href="Fares-Alnajjar-CV.pdf" target="_blank" rel="noopener" data-cv><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-5-5m5 5l5-5M5 21h14"/></svg><span class="en">Download CV</span><span class="ar">تحميل السيرة الذاتية</span></a>
+      </div>
+    </div>
+    <div class="portrait h-in"><img src="img/portrait.webp" alt="Fares Alnajjar" width="860" height="1080" fetchpriority="high"></div>
+  </div>
+  <div class="scroll-hint" aria-hidden="true"><i></i>SCROLL</div>
+</section>
+
+<div class="marq" aria-hidden="true"><div class="track" id="mq"></div></div>
+
+<!-- ABOUT -->
+<section class="sec about" id="about">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow rv"><span class="en">About</span><span class="ar">نبذة</span></div>
+      <h2 class="h2 rv"><span class="en">I turn complex business operations into <span class="ac">interfaces people enjoy using.</span></span><span class="ar">أحوّل العمليات المعقّدة إلى واجهات <span class="ac"><span class="ksh" data-k="واضح|ة|3">واضحة</span> وسهلة الاستخدام.</span></span></h2>
+    </div>
+    <p class="lead rv" style="margin-top:0"><span class="en">Multimedia designer with a Bachelor’s in Multimedia Technology and a Diploma in Graphic Design. At Link Business Solutions I designed a complete ERP suite from scratch, along with POS systems, admin dashboards, mobile apps and websites, working closely with developers and business teams so every screen is practical to build and simple to use.</span><span class="ar">مصمم وسائط متعددة، حاصل على بكالوريوس في تكنولوجيا الوسائط المتعددة ودبلوم في التصميم الجرافيكي. صمّمتُ في <bdi>Link Business Solutions</bdi> منظومة ERP متكاملة من الصفر، إلى جانب أنظمة نقاط البيع ولوحات التحكم وتطبيقات الهاتف والمواقع الإلكترونية، بالتعاون الوثيق مع فرق البرمجة والأعمال، لتكون كل شاشة قابلة للتنفيذ وسهلة الاستخدام.</span></p>
+    <blockquote class="quote rv"><span class="en">“I start every project by understanding the business: who the users are, what they do every day, and where operations break down. Only then does the design begin.”</span><span class="ar">«أبدأ كل مشروع بفهم طبيعة العمل: من المستخدم؟ وما إجراءاته اليومية؟ وأين تتعطّل العمليات؟ بعد ذلك فقط يبدأ التصميم.»</span><small><span class="en">How I approach business systems, step by step:</span><span class="ar">منهجيتي في تصميم أنظمة الأعمال، خطوةً بخطوة:</span></small></blockquote>
+    <ol class="process" style="list-style:none;margin:0;padding:0">
+      <li class="step rv"><span class="n">01</span><h3><span class="en">Understand the business</span><span class="ar">فهم طبيعة العمل</span></h3><p><span class="en">Sessions with owners and users; study the real procedures.</span><span class="ar">جلسات مع أصحاب العمل والمستخدمين، ودراسة الإجراءات الفعلية.</span></p></li>
+      <li class="step rv"><span class="n">02</span><h3><span class="en">Roles &amp; permissions</span><span class="ar">الأدوار والصلاحيات</span></h3><p><span class="en">Who sees what, and who can approve each action.</span><span class="ar">من يرى ماذا، ومن يملك صلاحية كل إجراء.</span></p></li>
+      <li class="step rv"><span class="n">03</span><h3><span class="en">User flows</span><span class="ar">تدفقات العمل</span></h3><p><span class="en">Map every operation from start to finish.</span><span class="ar">رسم مسار كل عملية من بدايتها إلى نهايتها.</span></p></li>
+      <li class="step rv"><span class="n">04</span><h3><span class="en">Interface design</span><span class="ar">تصميم الواجهات</span></h3><p><span class="en">Consistent screens built on one design system.</span><span class="ar">شاشات متّسقة مبنية على نظام تصميم موحّد.</span></p></li>
+      <li class="step rv"><span class="n">05</span><h3><span class="en">Developer handoff</span><span class="ar">التسليم للمطورين</span></h3><p><span class="en">Clear specs and follow-up through implementation.</span><span class="ar">مواصفات واضحة ومتابعة حتى اكتمال التنفيذ.</span></p></li>
+    </ol>
+    <div class="stats rv">
+      <div class="stat"><b><span data-count="7">7</span></b><span><span class="en">ERP modules designed from scratch for Link Business Solutions</span><span class="ar">وحدات ERP صمّمتُها من الصفر لشركة <bdi>Link Business Solutions</bdi></span></span></div>
+      <div class="stat"><b><span data-count="100">100</span><sup>+</sup></b><span><span class="en">screens in the Planet Donuts admin dashboard alone</span><span class="ar">شاشة في لوحة التحكم الإدارية لـ <bdi>Planet Donuts</bdi> وحدها</span></span></div>
+      <div class="stat"><b><span data-count="8">8</span></b><span><span class="en">connected systems in one client ecosystem</span><span class="ar">أنظمة مترابطة ضمن منظومة عميل واحد</span></span></div>
+    </div>
+    <div class="services">
+      <div class="svc rv"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 9h18M8 21h8M9 13h3"/></svg></div><h3><span class="en">ERP &amp; business systems</span><span class="ar">أنظمة ERP والأعمال</span></h3><p><span class="en">Roles, permissions and workflows turned into clear, consistent screens.</span><span class="ar">تحويل الأدوار والصلاحيات وتدفقات العمل إلى شاشات واضحة ومتّسقة.</span></p></div>
+      <div class="svc rv"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19V9m6 10V5m6 14v-7m4 7H2"/></svg></div><h3><span class="en">Dashboards &amp; admin</span><span class="ar">لوحات التحكم</span></h3><p><span class="en">Reporting, data management and daily operations at a glance.</span><span class="ar">التقارير وإدارة البيانات ومتابعة العمليات اليومية في لمحة واحدة.</span></p></div>
+      <div class="svc rv"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="7" y="2" width="10" height="20" rx="2.5"/><path d="M11 18h2"/></svg></div><h3><span class="en">Mobile apps &amp; websites</span><span class="ar">التطبيقات والمواقع</span></h3><p><span class="en">Customer-facing products, e-commerce and responsive web.</span><span class="ar">منتجات موجّهة للعملاء، ومتاجر إلكترونية، ومواقع متجاوبة.</span></p></div>
+      <div class="svc rv"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 000 18M3 12h18"/></svg></div><h3><span class="en">Brand &amp; graphic design</span><span class="ar">الهوية والتصميم الجرافيكي</span></h3><p><span class="en">Packaging, menus, campaigns, social media and print.</span><span class="ar">التغليف، والقوائم، والحملات، ووسائل التواصل، والمطبوعات.</span></p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ERP SUITE -->
+<section class="sec erp" id="erp">
+  <div class="wrap">
+    <div class="erp-head">
+      <div>
+        <div class="eyebrow rv"><span class="en">Link Business Solutions product</span><span class="ar">منتج <bdi>Link Business Solutions</bdi></span></div>
+        <h2 class="h2 rv"><span class="en">An ERP suite I designed <span class="ac">from scratch.</span></span><span class="ar">منظومة ERP صمّمتُها <span class="ac">من الصفر.</span></span></h2>
+        <p class="lead rv"><span class="en">Seven connected modules, every interface designed end to end. The suite is customized for each client’s business, and runs at Planet Donuts and other companies. I also designed the advertising campaign for each module.</span><span class="ar">سبع وحدات مترابطة صمّمتُ واجهاتها بالكامل. تُخصَّص المنظومة لكل عميل بحسب طبيعة عمله، وهي مطبّقة لدى <bdi>Planet Donuts</bdi> وشركات أخرى. وصمّمتُ كذلك الحملة الإعلانية لكل وحدة.</span></p>
+      </div>
+      <div class="erp-note rv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 018 0v4"/></svg><span><span class="en">The product interfaces are protected by a confidentiality agreement. What you see below are the ads I designed for each module. Hover or tap to see the second ad.</span><span class="ar">واجهات المنتج محمية باتفاقية سرية، وما يظهر أدناه هو الإعلانات التي صمّمتُها لكل وحدة. مرّر المؤشر أو المس البطاقة لعرض الإعلان الثاني.</span></span></div>
+    </div>
+    <div class="mods" id="mods"></div>
+  </div>
+</section>
+
+<!-- PLANET DONUTS -->
+<section class="sec pdx" id="planet">
+  <div class="wrap">
+    <div class="pd-head">
+      <div>
+        <div class="eyebrow rv"><span class="en">Featured client project</span><span class="ar">مشروع مختار</span></div>
+        <h2 class="h2 rv"><span class="en">Planet Donuts: one brand, <span class="ac">eight connected systems.</span></span><span class="ar"><bdi>Planet Donuts</bdi><br>علامة واحدة، <span class="ac">ثمانية أنظمة <span class="ksh" data-k="مترابط|ة|3">مترابطة</span>.</span></span></h2>
+        <p class="lead rv"><span class="en">A complete digital ecosystem I designed at Link Business Solutions, from the customer’s phone to the factory floor. It is built on Link’s customizable products, plus systems designed specifically for the client, so customers, cashiers, warehouse staff, production teams and management share one consistent experience.</span><span class="ar">منظومة رقمية متكاملة صمّمتُها ضمن عملي في <bdi>Link Business Solutions</bdi>، من تطبيق العميل حتى خط الإنتاج في المصنع. بُنيت على منتجات Link القابلة للتخصيص، وأضيفت إليها أنظمة صُمّمت خصيصًا للعميل، لتقدّم تجربة واحدة متّسقة للعميل والكاشير وموظف المستودع وفريق الإنتاج والإدارة.</span></p>
+        <div class="client-line rv"><span><span class="en">Client</span><span class="ar">العميل</span> · <b>Planet Donuts</b></span><span><span class="en">Agency</span><span class="ar">الشركة</span> · <b>Link Business Solutions</b></span><span><span class="en">Role</span><span class="ar">الدور</span> · <b>UI/UX Designer</b></span></div>
+        <div class="roles rv">
+          <span class="en">Business analysis</span><span class="en">UI design</span><span class="en">UX improvement</span><span class="en">User flows</span><span class="en">Dashboards</span><span class="en">Dev &amp; business collaboration</span>
+          <span class="ar">تحليل متطلبات العمل</span><span class="ar">تصميم الواجهات</span><span class="ar">تحسين تجربة المستخدم</span><span class="ar">تدفقات المستخدم</span><span class="ar">لوحات التحكم</span><span class="ar">التعاون مع البرمجة والأعمال</span>
+        </div>
+      </div>
+      <div class="pd-logo rv"><img class="main" src="img/pd/logo.webp" alt="Planet Donuts logo" width="900" height="466"><img class="cafe" src="img/pd/cafe.webp" alt="PD Cafe logo" width="500" height="706"></div>
+    </div>
+
+    <div class="eco">
+      <div>
+        <div class="eyebrow rv"><span class="en">The ecosystem</span><span class="ar">خريطة المنظومة</span></div>
+        <h3 class="h2 rv" style="font-size:var(--step-2)"><span class="en">Every system shares data with the ERP at its core.</span><span class="ar">جميع الأنظمة مرتبطة بنظام ERP في المركز.</span></h3>
+        <div class="cats rv">
+          <span><i class="c-link"></i><span class="en">Link product, customized</span><span class="ar">منتج Link مخصّص</span></span>
+          <span><i class="c-built"></i><span class="en">Built for Planet, reusable</span><span class="ar">صُمّم لـ Planet وقابل للتعميم</span></span>
+          <span><i class="c-own"></i><span class="en">Planet only</span><span class="ar">خاص بـ Planet</span></span>
+        </div>
+        <div class="legend" id="legend"></div>
+      </div>
+      <div class="map rv" id="map">
+        <svg viewBox="0 0 600 600" aria-hidden="true">
+          <defs><linearGradient id="gr" x1="0" x2="1"><stop offset="0" stop-color="#3D8BFF"/><stop offset="1" stop-color="#E01583"/></linearGradient></defs>
+          <circle class="ring" cx="300" cy="300" r="225"/>
+          <g id="lines"></g><g id="flows"></g>
+        </svg>
+        <div id="nodes"></div>
+      </div>
+    </div>
+
+    <div class="show" id="s-app">
+      <div class="show-h">
+        <div><div class="code rv">APP · Mobile Application</div><h3 class="rv"><span class="en">Customer mobile app</span><span class="ar">تطبيق الهاتف للعملاء</span></h3></div>
+        <p class="rv"><span class="en">Browse the menu, build a donut box, pick a store, collect offers and rewards, then order in a few taps.</span><span class="ar">تصفّح القائمة، وتجهيز علبة الدونات، واختيار الفرع، والعروض والمكافآت، ثم الطلب ببضع نقرات.</span></p>
+      </div>
+      <div class="phones" id="phones">
+        <div class="phone side" data-par="40"><div class="scr"><img class="autoscroll" src="img/pd/m2.webp" alt="App menu" width="440" height="1742" loading="lazy" style="--dur:16s"></div></div>
+        <div class="phone" data-par="-30"><div class="scr"><img class="autoscroll" src="img/pd/m1.webp" alt="App home" width="440" height="2012" loading="lazy" style="--dur:18s"></div></div>
+        <div class="phone side" data-par="60"><div class="scr"><img class="autoscroll" src="img/pd/m5.webp" alt="App rewards" width="440" height="1856" loading="lazy" style="--dur:17s"></div></div>
+      </div>
+      <div class="strip"><div class="track" id="strip"></div></div>
+      <div class="rv" id="pdstores"></div>
+    </div>
+
+    <div class="show" id="s-web">
+      <div class="show-h">
+        <div><div class="code rv">WEB · Website</div><h3 class="rv"><span class="en">The official website</span><span class="ar">الموقع الإلكتروني الرسمي</span></h3></div>
+        <p class="rv"><span class="en">Live at planetdonuts.com. Pick a page and it scrolls on its own; hover to pause.</span><span class="ar">منشور على planetdonuts.com. اختر صفحة لتتصفّحها تلقائيًا، ومرّر المؤشر فوقها لإيقافها.</span></p>
+      </div>
+      <div class="tabs rv" role="tablist" id="webtabs"></div>
+      <div class="web-row solo rv">
+        <div class="device"><div class="chrome"><div class="dots"><i></i><i></i><i></i></div><div class="url" id="weburl">planetdonuts.com</div></div><div class="viewport" id="webvp" data-cursor="Scroll"><img class="autoscroll" id="webimg" alt="Planet Donuts website" loading="lazy"></div></div>
+      </div>
+      <div class="visit"><a class="btn" href="https://planetdonuts.com/home/dashboard" target="_blank" rel="noopener"><span class="en">Visit the live site</span><span class="ar">زيارة الموقع</span> ↗</a></div>
+    </div>
+
+    <div class="show" id="s-pos">
+      <div class="show-h">
+        <div><div class="code rv">POS · Point of Sale</div><h3 class="rv"><span class="en">Point-of-sale system</span><span class="ar">نظام نقاط البيع</span></h3></div>
+        <p class="rv"><span class="en">A Link product customized for Planet Donuts: menu by category, cart and payment, and a live table map for dine-in.</span><span class="ar">منتج من Link خُصّص لـ <bdi>Planet Donuts</bdi>: قائمة حسب الفئات، وسلة ودفع، وخريطة حيّة للطاولات.</span></p>
+      </div>
+      <div class="pos-wrap rv"><div class="tablet"><div class="scr" id="posscr"></div></div><div class="thumbs" id="posthumbs"></div></div>
+    </div>
+
+    <div class="show" id="s-conf">
+      <div class="show-h">
+        <div><div class="code rv">ADMIN · AI · ERP · WH · FAC</div><h3 class="rv"><span class="en">Behind the counter</span><span class="ar">الأنظمة خلف الكواليس</span></h3></div>
+        <p class="rv"><span class="en">These hold the client’s internal data, so the screens stay private. Here is what each one covers.</span><span class="ar">تضمّ هذه الأنظمة بيانات داخلية للعميل، لذلك تبقى شاشاتها خاصة. وهذا ما يغطّيه كل نظام.</span></p>
+      </div>
+      <div class="conf">
+        <article class="cbox rv">
+          <span class="redact"></span>
+          <div class="top"><span class="code ltr">ADMIN</span><span class="nda-badge" data-nda></span></div>
+          <h4><span class="en">Admin dashboard</span><span class="ar">لوحة التحكم الإدارية</span></h4>
+          <p><span class="en">Designed for Planet Donuts and ready to be applied for other clients: one place to run branches, menus, marketing, stock, staff and customers.</span><span class="ar">صُمّمت لـ <bdi>Planet Donuts</bdi> وقابلة للتطبيق لدى عملاء آخرين: مكان واحد لإدارة الفروع، والقوائم، والتسويق، والمخزون، والموظفين، والعملاء.</span></p>
+          <div class="kpis"><div><b>100+</b><span><span class="en">screens</span><span class="ar">شاشة</span></span></div><div><b>8</b><span><span class="en">operational domains</span><span class="ar">مجالات تشغيلية</span></span></div></div>
+          <div class="domains" id="domains"></div>
+        </article>
+        <div class="side-stack">
+          <article class="cbox rv"><span class="redact"></span><div class="top"><span class="code ltr">AI · OCR</span><span class="nda-badge" data-nda></span></div><div class="ico"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4h18l9 9v31H11z"/><path d="M29 4v9h9M17 22h14M17 28h14M17 34h8"/></svg></div><h4><span class="en">AI-powered invoice processing</span><span class="ar">معالجة الفواتير بالذكاء الاصطناعي</span></h4><p><span class="en">Designed for Planet Donuts and adaptable for any client: reads supplier invoices (OCR), then extracts, organizes and stores the data.</span><span class="ar">صُمّم في الأصل لـ <bdi>Planet Donuts</bdi>، ويمكن تطبيقه لدى أي جهة: قراءة فواتير الموردين (OCR)، واستخراج بياناتها، وتنظيمها، وتخزينها.</span></p></article>
+          <article class="cbox rv"><span class="redact"></span><div class="top"><span class="code ltr">ERP · WH · FAC</span><span class="nda-badge" data-nda></span></div><div class="ico" style="color:var(--sel)"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2"><circle cx="24" cy="24" r="7"/><circle cx="24" cy="6" r="3"/><circle cx="24" cy="42" r="3"/><circle cx="6" cy="24" r="3"/><circle cx="42" cy="24" r="3"/><path d="M24 9v8m0 14v8M9 24h8m14 0h8"/></svg></div><h4><span class="en">ERP, warehouse &amp; factory</span><span class="ar">ERP والمستودعات والمصانع</span></h4><p><span class="en">Modules of the Link ERP suite, customized for Planet Donuts’ inventory, production and branch operations.</span><span class="ar">وحدات من منظومة Link، خُصّصت لعمليات المخزون والإنتاج والفروع لدى <bdi>Planet Donuts</bdi>.</span></p><p style="margin-top:12px"><a class="mini" href="#erp"><span class="en">See the ERP suite ↑</span><span class="ar">استعرض المنظومة ↑</span></a></p></article>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENTS -->
+<section class="sec" id="clients">
+  <div class="wrap">
+    <div class="eyebrow rv"><span class="en">Clients</span><span class="ar">العملاء</span></div>
+    <h2 class="h2 rv"><span class="en">Brands I’ve designed for. <span class="ac">Open one to see the work.</span></span><span class="ar">علامات تجارية عملتُ معها. <span class="ac">اختر عميلًا لاستعراض أعماله.</span></span></h2>
+    <div class="cgrid" id="cgrid"></div>
+  </div>
+</section>
+
+<!-- MORE WORK -->
+<section class="sec" id="work">
+  <div class="wrap">
+    <div class="eyebrow rv"><span class="en">More work</span><span class="ar">أعمال أخرى</span></div>
+    <h2 class="h2 rv"><span class="en">Identities, social media, print and <span class="ac">more interfaces.</span></span><span class="ar">هويات بصرية، ووسائل تواصل، ومطبوعات، <span class="ac">وواجهات أخرى.</span></span></h2>
+    <div class="filters" id="filters" role="group" aria-label="Filter">
+      <button aria-pressed="true" data-f="all"><span class="en">All</span><span class="ar">الكل</span></button>
+      <button aria-pressed="false" data-f="ui">UI/UX</button>
+      <button aria-pressed="false" data-f="brand"><span class="en">Branding</span><span class="ar">الهويات البصرية</span></button>
+      <button aria-pressed="false" data-f="social"><span class="en">Social media</span><span class="ar">وسائل التواصل</span></button>
+      <button aria-pressed="false" data-f="print"><span class="en">Print</span><span class="ar">المطبوعات</span></button>
+      <span class="fsep" aria-hidden="true"></span>
+      <button aria-pressed="false" data-f="link"><span class="en">Link clients</span><span class="ar">عملاء Link</span></button>
+      <button aria-pressed="false" data-f="free"><span class="en">Freelance</span><span class="ar">عمل حر</span></button>
+    </div>
+    <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<!-- CV -->
+<section class="sec cv" id="cv">
+  <div class="wrap">
+    <div class="cv-side">
+      <div class="eyebrow rv"><span class="en">Curriculum vitae</span><span class="ar">السيرة الذاتية</span></div>
+      <h2 class="h2 rv" style="margin:0"><span class="en">Experience &amp; <span class="ac">education.</span></span><span class="ar">الخبرات <span class="ac">والتعليـــم.</span></span></h2>
+      <div class="idcard rv"><img src="img/headshot.webp" alt="Fares Alnajjar" width="542" height="742" loading="lazy"><div><b><span class="en">Fares Bassam Alnajjar</span><span class="ar">فارس بسام النجّار</span></b><span class="en">Multimedia · Graphic · UI/UX Designer</span><span class="ar">مصمم وسائط متعددة · جرافيك · <bdi>UI/UX</bdi></span></div></div>
+      <div class="rv"><a class="btn pri" href="Fares-Alnajjar-CV.pdf" target="_blank" rel="noopener" data-cv><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-5-5m5 5l5-5M5 21h14"/></svg><span class="en">Download CV (PDF)</span><span class="ar">تحميل السيرة الذاتية (PDF)</span></a></div>
+    </div>
+    <div>
+      <h3 class="cv-h rv"><span class="en">Experience</span><span class="ar">الخبرات</span></h3>
+      <ol class="tl" id="tl">
+        <span class="fill" id="tlfill" aria-hidden="true"></span>
+        <li class="rv">
+          <div class="when"><span class="en">Sep 2024 — Present</span><span class="ar">سبتمبر 2024 — حتى الآن</span></div>
+          <h4><span class="en">Graphic Designer &amp; UI/UX Designer</span><span class="ar">مصمم جرافيك ومصمم واجهات وتجربة مستخدم</span></h4>
+          <div class="org"><bdi>Link Business Solutions</bdi> · <span class="en">Amman, Jordan</span><span class="ar">عمّان، الأردن</span></div>
+          <ul class="en"><li>Designed the company’s ERP suite from scratch: POS, Warehouse, Factory, HR, CRM, Purchasing and E-commerce, customized per client.</li><li>Start each project by analyzing the business: users, roles, permissions and real workflows, then turn them into intuitive, scalable products.</li><li>Planet Donuts ecosystem: mobile app, website, POS, a 100+ screen admin dashboard and AI invoice processing.</li><li>Client websites such as Yahmaa Medical, and the official Link Business Solutions website.</li><li>Advertising campaigns for every ERP module, plus branding, social media and marketing materials.</li><li>Link clients I designed for: Planet Donuts, Offerat, Hadaya, Yahmaa Medical, Istatieh Decorations, Ozom, Donuttery, She Shea, She Glow, AWJ Travel &amp; Tourism, Zait Sanabel, 1Booked, Ghaith Bakeries, Fresh &amp; Tasty and YALDA.</li></ul>
+          <ul class="ar"><li>تصميم منظومة ERP الخاصة بالشركة من الصفر: نقاط البيع، والمستودعات، والمصانع، والموارد البشرية، وعلاقات العملاء، والمشتريات، والتجارة الإلكترونية، مع تخصيصها لكل عميل.</li><li>البدء في كل مشروع بتحليل طبيعة العمل: المستخدمون، والأدوار، والصلاحيات، والإجراءات الفعلية، ثم تحويلها إلى منتجات سهلة وقابلة للتوسّع.</li><li>منظومة <bdi>Planet Donuts</bdi>: تطبيق الهاتف، والموقع الإلكتروني، ونقاط البيع، ولوحة تحكم بأكثر من 100 شاشة، ومعالجة الفواتير بالذكاء الاصطناعي.</li><li>مواقع العملاء مثل شركة اليهماء الطبية، والموقع الرسمي لشركة <bdi>Link Business Solutions</bdi>.</li><li>الحملات الإعلانية لجميع وحدات المنظومة، إلى جانب الهوية البصرية ومحتوى وسائل التواصل والمواد التسويقية.</li><li>من عملاء <bdi>Link</bdi> الذين صمّمتُ لهم: <bdi>Planet Donuts</bdi>، وأوفرات، وهدايا، اليهماء الطبية، وديكورات استيتية، وأوزوم، ودوناتري، وشي شيا، و<bdi>She Glow</bdi>، وأوج للسياحة والسفر، وزيت سنابل، و<bdi>1Booked</bdi>، ومخابز غيث، وفريش آند تيستي، ويلدا.</li></ul>
+        </li>
+        <li class="rv">
+          <div class="when"><span class="en">6 months</span><span class="ar">ستة أشهر</span></div>
+          <h4><span class="en">Real Estate Marketing &amp; Advertising Design</span><span class="ar">التسويق والإعلانات العقارية</span></h4>
+          <div class="org"><span class="en">Qeem Real Estate Company · Saudi Arabia</span><span class="ar">شركة قيم العقارية · المملكة العربية السعودية</span></div>
+          <ul class="en"><li>Advertising content that presents each property’s value, following INFATH guidelines for public real estate auctions.</li><li>Market analysis and property identification across many property types.</li></ul>
+          <ul class="ar"><li>إعداد محتوى إعلاني يُبرز قيمة العقار، وفق متطلبات مركز الإسناد والتصفية (إنفاذ) للمزادات العلنية.</li><li>تحليل السوق العقاري، وتحديد العقارات، والتعامل مع أنواع متعددة منها.</li></ul>
+        </li>
+        <li class="rv">
+          <div class="when"><span class="en">Alongside full-time work</span><span class="ar">إلى جانب العمل</span></div>
+          <h4><span class="en">Freelance Graphic Designer</span><span class="ar">مصمم جرافيك مستقل</span></h4>
+          <div class="org"><span class="en">Independent projects</span><span class="ar">مشاريع مستقلة</span></div>
+          <ul class="en"><li>Identities, packaging, print and social media for NF Esports, Abaya, Thirsty Camel, Sahab, 90 Al-La’eeb, Competition Hub and Atr Al Thahab.</li><li>Book covers, restaurant campaigns and social media series.</li></ul>
+          <ul class="ar"><li>هويات بصرية، وتغليف، ومطبوعات، ومحتوى وسائل التواصل لكلٍّ من <bdi>NF Esports</bdi>، وعباية، و<bdi>Thirsty Camel</bdi>، وسحاب، و90 اللعيب، و<bdi>Competition Hub</bdi>، وعطر الذهب.</li><li>أغلفة الكتب، وحملات المطاعم، وسلاسل منشورات وسائل التواصل.</li></ul>
+        </li>
+        <li class="rv">
+          <div class="when"><span class="en">May 2024</span><span class="ar">مايو 2024</span></div>
+          <h4><span class="en">Video Editor (Course)</span><span class="ar">محرّر فيديو (دورة تدريبية)</span></h4>
+          <div class="org"><bdi>The Hope International Company</bdi> · <span class="en">Jordan</span><span class="ar">الأردن</span></div>
+          <ul class="en"><li>Promotional and awareness videos in Adobe Premiere and After Effects.</li></ul>
+          <ul class="ar"><li>إنتاج فيديوهات ترويجية وتوعوية باستخدام <bdi>Adobe Premiere</bdi> و<bdi>After Effects</bdi>.</li></ul>
+        </li>
+      </ol>
+      <h3 class="cv-h rv"><span class="en">Education</span><span class="ar">التعليم</span></h3>
+      <div class="edu">
+        <div class="rv"><span class="when"><span class="en">Feb 2024</span><span class="ar">فبراير 2024</span></span><b><span class="en">Bachelor’s in Multimedia Technology</span><span class="ar">بكالوريوس تكنولوجيا الوسائط المتعددة</span></b><span><span class="en">Al-Zaytoonah University of Jordan, Amman</span><span class="ar">جامعة الزيتونة الأردنية، عمّان</span></span></div>
+        <div class="rv"><span class="when"><span class="en">Jul 2021</span><span class="ar">يوليو 2021</span></span><b><span class="en">Diploma in Graphic Design</span><span class="ar">دبلوم التصميم الجرافيكي</span></b><span><span class="en">Hittin College, Amman</span><span class="ar">كلية حطين، عمّان</span></span></div>
+      </div>
+      <h3 class="cv-h rv"><span class="en">Skills</span><span class="ar">المهارات</span></h3>
+      <div class="skills">
+        <div class="sk rv"><h5><span class="en">Business understanding</span><span class="ar">فهم الأعمال</span></h5><div class="chips"><span class="hl en">Business requirements analysis</span><span class="hl en">Roles &amp; permissions</span><span class="en">Workflow mapping</span><span class="hl ar">تحليل متطلبات الأعمال</span><span class="hl ar">الأدوار والصلاحيات</span><span class="ar">رسم تدفقات العمل</span></div></div>
+        <div class="sk rv"><h5><span class="en">Design &amp; UI/UX tools</span><span class="ar">أدوات التصميم</span></h5><div class="chips ltr"><span>Figma</span><span>Adobe XD</span><span>Photoshop</span><span>Illustrator</span><span>InDesign</span></div></div>
+        <div class="sk rv"><h5><span class="en">Practice</span><span class="ar">مجالات العمل</span></h5><div class="chips"><span class="en">Wireframes &amp; prototypes</span><span class="en">Design systems</span><span class="en">ERP &amp; dashboards</span><span class="en">Web &amp; mobile UI</span><span class="en">Packaging &amp; branding</span><span class="ar">النماذج الأولية والتفاعلية</span><span class="ar">أنظمة التصميم</span><span class="ar">أنظمة ERP ولوحات التحكم</span><span class="ar">واجهات الويب والهاتف</span><span class="ar">التغليف والهوية البصرية</span></div></div>
+        <div class="sk rv"><h5><span class="en">Also</span><span class="ar">مهارات إضافية</span></h5><div class="chips"><span class="ltr">Premiere · After Effects · CapCut</span><span class="en">Arabic &amp; English</span><span class="ar">العربية والإنجليزية</span></div></div>
+        <div class="sk rv"><h5><span class="en">Ways of working</span><span class="ar">أسلوب العمل</span></h5><div class="chips"><span class="en">Attention to detail</span><span class="en">Communication &amp; collaboration</span><span class="en">Time management</span><span class="en">Critical thinking</span><span class="en">Adaptability</span><span class="ar">الاهتمام بالتفاصيل</span><span class="ar">التواصل والعمل الجماعي</span><span class="ar">إدارة الوقت</span><span class="ar">التفكير النقدي</span><span class="ar">المرونة</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="sec contact" id="contact">
+  <div class="wrap">
+    <div class="eyebrow rv"><span class="en">Contact</span><span class="ar">التواصل</span></div>
+    <h2 class="big-cta rv"><span class="en">Let’s build<br>something <span class="ac">clear.</span></span><span class="ar">لنصمّم معًا<br>تجربة <span class="ac"><span class="ksh" data-k="مختلف|ة|4">مختلفة</span>.</span></span></h2>
+    <div class="clist rv">
+      <div class="ci"><small><span class="en">Phone · WhatsApp</span><span class="ar">الهاتف · واتساب</span></small><span class="v ltr">+962 790 465 485</span><div class="row"><button class="mini" data-copy="+962790465485"><span class="en">Copy</span><span class="ar">نسخ</span></button><a class="mini" href="https://wa.me/962790465485" target="_blank" rel="noopener">WhatsApp ↗</a></div></div>
+      <div class="ci"><small><span class="en">Email</span><span class="ar">البريد الإلكتروني</span></small><span class="v ltr">faresba00@gmail.com</span><div class="row"><button class="mini" data-copy="faresba00@gmail.com"><span class="en">Copy</span><span class="ar">نسخ</span></button></div></div>
+      <div class="ci"><small>LinkedIn</small><span class="v ltr">in/fares-alnajjar</span><div class="row"><a class="mini" href="https://www.linkedin.com/in/fares-alnajjar-810208210" target="_blank" rel="noopener"><span class="en">Open profile ↗</span><span class="ar">فتح الحساب ↗</span></a></div></div>
+      <div class="ci"><small><span class="en">Based in</span><span class="ar">مكان الإقامة</span></small><span class="v"><span class="en">Amman, Jordan</span><span class="ar">عمّان، الأردن</span></span><div class="row"><a class="mini" href="Fares-Alnajjar-CV.pdf" target="_blank" rel="noopener" data-cv><span class="en">Download CV</span><span class="ar">تحميل السيرة</span></a></div></div>
+    </div>
+  </div>
+</section>
+</main>
+<footer><div class="wrap"><span class="ltr">© 2026 Fares Alnajjar</span><span><span class="en">Arabic set in Thmanyah · Latin in Lexend</span><span class="ar">الخط العربي: ثمانية · الخط اللاتيني: Lexend</span></span></div></footer>
+
+<!-- client page -->
+<div class="cp" id="cp" role="dialog" aria-modal="true" aria-label="Client"><div id="cpin"></div></div>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Image viewer">
+  <div class="bar"><b id="lbt"></b><button class="ib" id="lbx" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+  <div class="stage" id="lbs"><img id="lbi" alt=""></div>
+  <div class="nav2"><button class="ib" id="lbp" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 6l-6 6 6 6"/></svg></button><button class="ib" id="lbn" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></button></div>
+</div>
+<div class="toast" id="toast"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="data.js" charset="utf-8"></script>
+<script src="book.js" charset="utf-8"></script>
+<script src="tub3d.js" charset="utf-8"></script>
+<script src="app.js" charset="utf-8"></script>
