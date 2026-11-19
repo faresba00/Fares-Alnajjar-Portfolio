@@ -55,44 +55,55 @@ setInterval(()=>{const L=D.ROT[root.lang]||D.ROT.en;rotIdx=(rotIdx+1)%L.length;t
   })();
 })();
 
-/* ============ resizable name frame ============ */
+/* ============ resizable name frame — the name stretches with the frame ============
+   Arabic: always two lines; widening adds a kashida (tatweel) inside each word
+   (فـــارس / النجّـــار — the only joinable spots, since ر and ا don't connect forward).
+   English: always two lines; widening opens up the letter-spacing. Both have a ceiling. */
 (function nameFrame(){
   const nf=$("#nf"), dim=$("#dimlbl"), reset=$("#nfReset"); if(!nf)return;
-  let userW=null;
+  const TW="ـ", NMAX=7, LSMAX=.16; // max tatweels per word / max extra tracking (em)
+  let userW=null, cur=0;
   const h1=()=>AR()?$("#hn-ar"):$("#hn-en");
   const words=()=>$$(".w",h1());
   const pad=32;
-  function bounds(){
-    const ws=words(); const widest=Math.max(...ws.map(w=>w.getBoundingClientRect().width));
-    const maxW=Math.min(innerWidth-32,$(".hero .wrap").clientWidth-16);
-    return {min:Math.ceil(widest+pad+2),max:Math.floor(maxW)};
-  }
+  // Arabic word text with n tatweels (keeps the accent dot span)
+  function setAr(w,n){const dot=w.querySelector(".ac");const t=w.dataset.a+TW.repeat(Math.max(0,n))+w.dataset.b;
+    if(w._n===n)return; w._n=n; w.firstChild&&w.firstChild.nodeType===3?w.firstChild.nodeValue=t:w.insertBefore(document.createTextNode(t),w.firstChild);
+    if(dot&&dot.parentNode!==w)w.appendChild(dot)}
+  function widthAt(w,n){if(AR()){setAr(w,n)}else{w.style.letterSpacing=n?n+"em":""}return w.getBoundingClientRect().width}
+  // natural (n=0) and stretched widths for every word
+  function metrics(){return words().map(w=>{
+    if(AR()){const w0=widthAt(w,0),w4=widthAt(w,4);return {w,w0,step:(w4-w0)/4,max:w0+(w4-w0)/4*NMAX}}
+    const fs=parseFloat(getComputedStyle(w).fontSize),chars=w.textContent.length;const w0=widthAt(w,0);
+    return {w,w0,step:fs*chars,max:w0+fs*chars*LSMAX}})}
+  let M=null;
+  function bounds(){M=metrics();const widest=Math.max(...M.map(m=>m.w0)),longest=widest+Math.min(...M.map(m=>m.max-m.w0));
+    const room=Math.min(innerWidth-32,$(".hero .wrap").clientWidth-16);
+    return {min:Math.ceil(widest+pad+2),max:Math.floor(Math.min(room,longest+pad+2))}}
+  // fill: stretch each word to the frame's inner width, within its ceiling
+  // the extra width beyond the narrowest frame is added to BOTH lines equally,
+  // so the smallest frame reads plain "فارس النجّار" and every word grows together
+  function fill(inner){const ms=M||metrics(),extra=Math.max(0,inner-Math.max(...ms.map(m=>m.w0)));ms.forEach(m=>{
+    if(AR()){const n=Math.min(NMAX,Math.floor(extra/m.step+1e-6));setAr(m.w,n)}
+    else{const ls=Math.min(LSMAX,extra/m.step);m.w.style.letterSpacing=ls>0?`calc(-0.045em + ${ls.toFixed(4)}em)`:""}})}
   function upd(){const r=nf.getBoundingClientRect();dim.textContent=`W ${Math.round(r.width)} × H ${Math.round(r.height)}`}
-  function flip(fn){
-    const ws=words(); const before=ws.map(w=>w.getBoundingClientRect());
-    fn();
-    if(RM)return;
-    ws.forEach((w,i)=>{const a=before[i],b=w.getBoundingClientRect();const dx=a.left-b.left,dy=a.top-b.top;
-      if(Math.abs(dx)>2||Math.abs(dy)>2){w.animate([{transform:`translate(${dx}px,${dy}px)`},{transform:"none"}],{duration:520,easing:"cubic-bezier(.2,.7,.1,1)"})}});
-  }
-  function setW(w){const b=bounds();w=Math.max(b.min,Math.min(b.max,w));
-    const lines=()=>new Set(words().map(x=>Math.round(x.getBoundingClientRect().top))).size;
-    const l0=lines(); nf.style.width=w+"px"; const l1=lines();
-    if(l0!==l1){nf.style.width="";const keep=nf.getBoundingClientRect();nf.style.width=keep.width+"px";flip(()=>{nf.style.width=w+"px"})}
-    upd();}
-  function init(){nf.style.width="";const b=bounds();nf.style.width=Math.min(b.max,Math.max(b.min,b.min))+"px";if(userW)setW(userW);upd()}
-  window.__nfInit=()=>{userW=null;nf.classList.remove("resized");init()};
+  function setW(w){const b=bounds();w=Math.max(b.min,Math.min(b.max,w));cur=w;nf.style.width=w+"px";fill(w-pad-2);upd()}
+  function init(){words().forEach(w=>{w._n=-1});nf.style.width="";const b=bounds();setW(userW||b.min)}
+  window.__nfInit=()=>{userW=null;nf.classList.remove("resized");$$("#hn-ar .w,#hn-en .w").forEach(w=>{w._n=-1;w.style.letterSpacing=""});init()};
   let drag=null;
   $$(".hd",nf).forEach(h=>{
     h.addEventListener("pointerdown",e=>{e.preventDefault();h.setPointerCapture(e.pointerId);h.classList.add("drag");$("#ring")&&$("#ring").classList.add("rs");
       drag={h:h.dataset.h,x:e.clientX,w:nf.getBoundingClientRect().width}});
     h.addEventListener("pointermove",e=>{if(!drag)return;const dx=e.clientX-drag.x;const left=drag.h.includes("w");
-      let w=drag.w+(left?-dx:dx); userW=w; nf.classList.add("resized"); setW(w)});
+      userW=drag.w+(left?-dx:dx); nf.classList.add("resized"); setW(userW)});
     const end=()=>{drag=null;h.classList.remove("drag");$("#ring")&&$("#ring").classList.remove("rs")};
     h.addEventListener("pointerup",end);h.addEventListener("pointercancel",end);
-    h.addEventListener("keydown",e=>{if(e.key==="ArrowLeft"||e.key==="ArrowRight"){e.preventDefault();const cur=nf.getBoundingClientRect().width;const d=(e.key==="ArrowRight"?1:-1)*(h.dataset.h.includes("w")?-1:1)*24;userW=cur+d;nf.classList.add("resized");setW(userW)}});
+    h.addEventListener("keydown",e=>{if(e.key==="ArrowLeft"||e.key==="ArrowRight"){e.preventDefault();const d=(e.key==="ArrowRight"?1:-1)*(h.dataset.h.includes("w")?-1:1)*24;userW=nf.getBoundingClientRect().width+d;nf.classList.add("resized");setW(userW)}});
   });
-  reset.addEventListener("click",()=>{userW=null;nf.classList.remove("resized");const b=bounds();flip(()=>{nf.style.width=b.min+"px"});upd()});
+  // reset: glide back so the kashida shrinks letter by letter
+  reset.addEventListener("click",()=>{userW=null;nf.classList.remove("resized");const b=bounds(),from=cur,to=b.min;
+    if(RM||from<=to){setW(to);return}
+    const t0=performance.now(),D=650;(function step(t){const p=Math.min(1,(t-t0)/D),e=1-Math.pow(1-p,3);setW(from+(to-from)*e);if(p<1&&userW===null)requestAnimationFrame(step)})(t0)});
   addEventListener("resize",()=>{clearTimeout(nf._t);nf._t=setTimeout(init,120)});
   (document.fonts?document.fonts.ready:Promise.resolve()).then(init); init();
 })();
