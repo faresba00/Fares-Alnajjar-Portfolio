@@ -56,6 +56,15 @@ window.DATA = {
   },
 
   CLIENTS: [
+    { id: "nchr", name: { en: "National Centre for Human Rights", ar: "المركز الوطني لحقوق الإنسان" }, cover: "img/cl/nchr/logo.webp", coverFit: "contain", coverBg: "radial-gradient(circle at 50% 45%,#1d2533,#0b0d12 70%)",
+      tag: { en: "National project · Confidential", ar: "مشروع وطني · سرّي" },
+      theme: { bg: "#0b0d12", fg: "#EEF1F6", muted: "#A3ABB8", accent: "#8FA6C8", logo: "#0f131b" },
+      logo: "img/cl/nchr/logo.webp", logoNote: true,
+      about: { en: "A digital system for a national project. I designed its full UI and UX as part of my work at Link Business Solutions. Given the nature of the project, its details and screens remain confidential.", ar: "منظومة رقمية لمشروع وطني، صمّمتُ واجهاتها وتجربة استخدامها بالكامل ضمن عملي في Link Business Solutions. ونظرًا لطبيعة المشروع، تبقى تفاصيله وشاشاته سرّية." },
+      meta: { en: ["Link client", "Full UI/UX", "Web dashboard", "Mobile app"], ar: ["عميل لدى Link", "UI/UX كامل", "لوحة تحكم للويب", "تطبيق للهاتف"] },
+      sections: [ { type: "nda", t: { en: "What I designed", ar: "ما صمّمته" }, s: { en: "The screens stay private under the project agreement.", ar: "تبقى الشاشات خاصة وفق اتفاقية المشروع." }, items: [
+        { c: "WEB", en: "Web dashboard", ar: "لوحة تحكم للويب", den: "Designed end to end, from the first wireframe to the final interface.", dar: "صُمّمت بالكامل، من المخطط الأول حتى الواجهة النهائية." },
+        { c: "APP", en: "Mobile app", ar: "تطبيق للهاتف", den: "Designed end to end, in Arabic and English.", dar: "صُمّم بالكامل، باللغتين العربية والإنجليزية." } ] } ] },
     { id: "istatieh", name: { en: "Istatieh Decorations", ar: "ديكورات استيتية" }, sub: { en: "Ayoub Statieh", ar: "أيوب ستيتية" }, cover: "img/cl/istatieh/b00.webp",
       tag: { en: "Catalogue · Social · Website", ar: "كتالوج · وسائل التواصل · موقع" },
       theme: { bg: "#140608", fg: "#FBF2F2", muted: "#C9A6A9", accent: "#D3203A", logo: "#ffffff" },

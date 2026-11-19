@@ -642,3 +642,37 @@ html[lang="ar"] .ig-k{font-family:"Thm Sans";letter-spacing:0;font-size:14px}
 .label-strip .cap{position:absolute;inset-inline-start:12px;bottom:12px;background:rgba(0,0,0,.65);color:#fff;font-size:12px;padding:6px 10px;border-radius:8px}
 @media (max-width:760px){.tubwrap{min-height:340px;height:360px}.yalda-row{grid-template-columns:repeat(5,1fr);gap:6px}.yalda-row button{padding:4px;border-radius:12px}.yalda-row button span{display:none}}
 html[dir="rtl"] .bk-count{direction:rtl}
+
+/* ===== National Centre for Human Rights (confidential) ===== */
+.nchr{position:relative;overflow:hidden}
+.nchr::before{content:"";position:absolute;inset:0;background:radial-gradient(50% 60% at 80% 50%,rgba(120,140,180,.14),transparent 70%);pointer-events:none}
+html[dir="rtl"] .nchr::before{background:radial-gradient(50% 60% at 20% 50%,rgba(120,140,180,.14),transparent 70%)}
+.nc-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(30px,5vw,70px);align-items:center}
+.vault{position:relative;aspect-ratio:1.05;border-radius:28px;overflow:hidden;border:1px solid var(--line-2);background:#0b0d12;isolation:isolate;box-shadow:0 50px 100px -40px rgba(0,0,0,.9)}
+.v-screens{position:absolute;inset:-8%;opacity:.75;animation:vdrift 22s ease-in-out infinite alternate}
+.v-screens{filter:blur(6px) saturate(.8)}
+.g-win{position:absolute;display:flex;border-radius:14px;background:#e9edf3;box-shadow:0 30px 60px rgba(0,0,0,.6);overflow:hidden}
+.g-w1{width:80%;height:52%;left:2%;top:8%;transform:rotate(-6deg)}
+.g-w2{width:70%;height:44%;left:30%;top:52%;transform:rotate(4deg)}
+.g-side{width:18%;background:#2f4a72}
+.g-main{flex:1;padding:5%;display:flex;flex-direction:column;gap:8%}
+.g-row{display:grid;grid-template-columns:repeat(4,1fr);gap:6%}.g-row i{height:22px;border-radius:6px;background:#fff}
+.g-chart{flex:1;display:flex;align-items:flex-end;gap:5%;padding:0 4%}.g-chart b{flex:1;border-radius:4px 4px 0 0;background:#4b74b0}
+.g-lines{display:flex;flex-direction:column;gap:10px}.g-lines i{height:12px;border-radius:6px;background:#cfd6e0}
+.g-phone{position:absolute;border-radius:22px;background:#f3f5f8;padding:8% 3%;box-shadow:0 30px 60px rgba(0,0,0,.6)}
+.g-p1{width:22%;height:46%;right:5%;top:4%;transform:rotate(8deg)}
+.g-p2{width:20%;height:40%;left:44%;top:24%;transform:rotate(-4deg)}
+.g-hero{height:60px!important;background:#2f4a72!important;border-radius:10px!important}
+@keyframes vdrift{from{transform:translate3d(-2%,-1%,0) scale(1.02)}to{transform:translate3d(2%,2%,0) scale(1.08)}}
+.v-veil{position:absolute;inset:0;background:radial-gradient(60% 55% at 50% 50%,rgba(11,13,18,.55),rgba(11,13,18,.92) 75%),linear-gradient(180deg,rgba(11,13,18,.2),rgba(11,13,18,.7))}
+.v-sweep{position:absolute;inset:-30%;background:linear-gradient(110deg,transparent 42%,rgba(255,255,255,.08) 50%,transparent 58%);animation:vsweep 7s ease-in-out infinite 1s}
+@keyframes vsweep{0%,55%{transform:translateX(-40%)}85%,100%{transform:translateX(40%)}}
+.v-front{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;padding:10%;text-align:center}
+.v-logo{width:min(86%,440px);height:auto;filter:drop-shadow(0 10px 30px rgba(0,0,0,.6))}
+.v-lock{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:99px;background:rgba(255,217,0,.1);border:1px solid rgba(255,217,0,.3);color:var(--pd-yellow);font-size:13px;font-weight:600}
+.v-lock svg{width:14px;height:14px;flex:none}
+@media (max-width:900px){.nc-grid{grid-template-columns:1fr}.vault{aspect-ratio:1.2}}
+@media (prefers-reduced-motion:reduce){.v-screens,.v-sweep{animation:none}}
+.nchr .h2{font-size:clamp(1.9rem,1.2rem + 2.6vw,3.5rem)}
+.v-screens{opacity:.9}
+.v-veil{background:radial-gradient(55% 50% at 50% 50%,rgba(11,13,18,.5),rgba(11,13,18,.86) 78%),linear-gradient(180deg,rgba(11,13,18,.1),rgba(11,13,18,.6))}
