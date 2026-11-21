@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -13,6 +13,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800;900&display=swap">
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="eco.css">
 </head>
 <body>
 <div class="loader" id="loader" aria-hidden="true"><div class="ld"><div class="mono">FA<em>.</em></div><div class="bar"><i id="ldbar"></i></div><div class="pct" id="ldpct">000</div></div></div>
@@ -159,12 +160,13 @@
         <div><div class="code rv">APP · Mobile Application</div><h3 class="rv"><span class="en">Customer mobile app</span><span class="ar">تطبيق الهاتف للعملاء</span></h3></div>
         <p class="rv"><span class="en">Browse the menu, build a donut box, pick a store, collect offers and rewards, then order in a few taps.</span><span class="ar">تصفّح القائمة، وتجهيز علبة الدونات، واختيار الفرع، والعروض والمكافآت، ثم الطلب ببضع نقرات.</span></p>
       </div>
-      <div class="phones" id="phones">
-        <div class="phone side" data-par="40"><div class="scr"><img class="autoscroll" src="img/pd/m2.webp" alt="App menu" width="440" height="1742" loading="lazy" style="--dur:16s"></div></div>
-        <div class="phone" data-par="-30"><div class="scr"><img class="autoscroll" src="img/pd/m1.webp" alt="App home" width="440" height="2012" loading="lazy" style="--dur:18s"></div></div>
-        <div class="phone side" data-par="60"><div class="scr"><img class="autoscroll" src="img/pd/m5.webp" alt="App rewards" width="440" height="1856" loading="lazy" style="--dur:17s"></div></div>
+      <div class="p3-wrap rv">
+        <div class="p3-side">
+          <div class="p3-hint"><span class="en">Tap a screen to open it on the phone. Scroll inside the screen, or drag the phone to turn it.</span><span class="ar">اختر شاشة لتفتح على الهاتف. مرّر داخل الشاشة، أو اسحب الهاتف لتدويره.</span></div>
+          <div class="p3-list" id="p3list" role="tablist"></div>
+        </div>
+        <div id="p3" aria-label="Planet Donuts app"></div>
       </div>
-      <div class="strip"><div class="track" id="strip"></div></div>
       <div class="rv" id="pdstores"></div>
     </div>
 
@@ -211,34 +213,26 @@
   </div>
 </section>
 
-<!-- NATIONAL CENTRE FOR HUMAN RIGHTS -->
-<section class="sec nchr" id="nchr">
+<!-- LINK ECO · E-COMMERCE -->
+<section class="sec ecox" id="eco">
   <div class="wrap">
-    <div class="nc-grid">
+    <div class="eco-head">
       <div>
-        <div class="eyebrow rv"><span class="en">National project · Link client</span><span class="ar">مشروع وطني · عميل لدى <bdi>Link</bdi></span></div>
-        <h2 class="h2 rv"><span class="en">The National Centre for Human Rights. <span class="ac">A digital system for a national project.</span></span><span class="ar">المركز الوطني لحقوق الإنسان.<br><span class="ac">منظومة رقمية <span style="white-space:nowrap">لمشروع وطني.</span></span></span></h2>
-        <p class="lead rv"><span class="en">I designed the full UI and UX of the system as part of my work at Link Business Solutions: a web dashboard and a mobile app. Given the nature of the project, its details and screens remain confidential.</span><span class="ar">صمّمتُ واجهات المنظومة وتجربة استخدامها بالكامل ضمن عملي في <bdi>Link Business Solutions</bdi>، وتشمل لوحة تحكم للويب وتطبيقًا للهاتف. ونظرًا لطبيعة المشروع، تبقى تفاصيله وشاشاته سرّية.</span></p>
-        <div class="client-line rv"><span><span class="en">Client</span><span class="ar">العميل</span> · <b><span class="en">National Centre for Human Rights</span><span class="ar">المركز الوطني لحقوق الإنسان</span></b></span><span><span class="en">Agency</span><span class="ar">الشركة</span> · <b>Link Business Solutions</b></span><span><span class="en">Role</span><span class="ar">الدور</span> · <b>UI/UX Designer</b></span></div>
-        <div class="roles rv">
-          <span class="en">Full UI/UX</span><span class="en">Web dashboard</span><span class="en">Mobile app</span><span class="en">Design system</span><span class="en">Arabic · English</span>
-          <span class="ar">تصميم الواجهات والتجربة كاملةً</span><span class="ar">لوحة تحكم للويب</span><span class="ar">تطبيق للهاتف</span><span class="ar">نظام تصميم موحّد</span><span class="ar">عربي · English</span>
-        </div>
+        <div class="eyebrow rv"><span class="en">Link product · ECO module</span><span class="ar">منتج <bdi>Link</bdi> · وحدة التجارة الإلكترونية</span></div>
+        <h2 class="h2 rv"><span class="en">One storefront, <span class="ac">any business.</span></span><span class="ar">متجر واحد، <span class="ac">لأي نشاط تجاري.</span></span></h2>
+        <p class="lead rv"><span class="en">The e-commerce website and app I designed in full at Link Business Solutions. The same product is re-skinned for each client: a restaurant, a clothing store, or anything else. Pick a business and a platform, then browse the pages.</span><span class="ar">الموقع والتطبيق للتجارة الإلكترونية، صمّمتُهما بالكامل ضمن عملي في <bdi>Link Business Solutions</bdi>. المنتج نفسه يُخصَّص لكل عميل: مطعم، أو متجر ملابس، أو أي نشاط آخر. اختر النشاط والمنصة، ثم تصفّح الصفحات.</span></p>
       </div>
-      <div class="vault rv" aria-label="Confidential project">
-        <div class="v-screens" aria-hidden="true">
-          <div class="g-win g-w1"><i class="g-side"></i><div class="g-main"><div class="g-row"><i></i><i></i><i></i><i></i></div><div class="g-chart"><b style="height:40%"></b><b style="height:70%"></b><b style="height:55%"></b><b style="height:85%"></b><b style="height:60%"></b><b style="height:75%"></b></div><div class="g-lines"><i></i><i></i><i></i></div></div></div>
-          <div class="g-win g-w2"><i class="g-side"></i><div class="g-main"><div class="g-lines"><i></i><i></i><i></i><i></i><i></i></div></div></div>
-          <div class="g-phone g-p1"><div class="g-lines"><i class="g-hero"></i><i></i><i></i><i></i></div></div>
-          <div class="g-phone g-p2"><div class="g-lines"><i class="g-hero"></i><i></i><i></i></div></div>
-        </div>
-        <i class="v-veil" aria-hidden="true"></i><i class="v-sweep" aria-hidden="true"></i>
-        <div class="v-front">
-          <img class="v-logo" src="img/cl/nchr/logo.webp" alt="National Centre for Human Rights" width="1000" height="250">
-          <span class="v-lock"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 018 0v4"/></svg><span class="en">Confidential · protected by agreement</span><span class="ar">سرّي · محمي باتفاقية</span></span>
-        </div>
+      <div class="eco-ctl rv">
+        <div class="seg" id="ecoBiz" role="radiogroup"><button type="button" data-v="0" aria-pressed="true"><span class="en">Restaurant</span><span class="ar">مطعم</span></button><button type="button" data-v="1" aria-pressed="false"><span class="en">Clothing</span><span class="ar">ملابس</span></button><i class="seg-ind"></i></div>
+        <div class="seg" id="ecoPlat" role="radiogroup"><button type="button" data-v="0" aria-pressed="true"><span class="en">Website</span><span class="ar">الموقع</span></button><button type="button" data-v="1" aria-pressed="false"><span class="en">App</span><span class="ar">التطبيق</span></button><i class="seg-ind"></i></div>
       </div>
     </div>
+    <div class="eco-tabs rv" id="ecoPages" role="tablist"></div>
+    <div class="eco-stage rv" id="ecoStage">
+      <div class="eco-browser" id="ecoWeb"><div class="chrome"><div class="dots"><i></i><i></i><i></i></div><div class="url ltr" id="ecoUrl">linkeco.jo</div></div><div class="eco-vp" id="ecoVp" data-cursor="Scroll"></div></div>
+      <div class="eco-phone" id="ecoPhone" hidden></div>
+    </div>
+    <p class="eco-note rv" id="ecoNote"></p>
   </div>
 </section>
 
@@ -360,6 +354,8 @@
 <script src="data.js" charset="utf-8"></script>
 <script src="book.js" charset="utf-8"></script>
 <script src="tub3d.js" charset="utf-8"></script>
+<script src="phone3d.js" charset="utf-8"></script>
+<script src="eco.js" charset="utf-8"></script>
 <script src="app.js" charset="utf-8"></script>
 </body>
 </html>

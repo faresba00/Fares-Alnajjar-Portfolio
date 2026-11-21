@@ -39,6 +39,20 @@ window.DATA = {
   ],
 
   APPSTRIP: [6, 11, 7, 3, 4, 8, 9, 10, 12],
+  APPSCREENS: [
+    { m: 1, h: 2012, en: "Home", ar: "الرئيسية" },
+    { m: 2, h: 1742, en: "Menu", ar: "القائمة" },
+    { m: 3, h: 1515, en: "Product", ar: "المنتج" },
+    { m: 4, h: 1603, en: "Build a box", ar: "تجهيز العلبة" },
+    { m: 8, h: 1104, en: "Drinks", ar: "المشروبات" },
+    { m: 9, h: 956, en: "Special occasions", ar: "المناسبات الخاصة" },
+    { m: 10, h: 956, en: "Donut tower", ar: "برج الدونات" },
+    { m: 12, h: 1449, en: "Cart", ar: "السلة" },
+    { m: 7, h: 1353, en: "Stores", ar: "الفروع" },
+    { m: 5, h: 1856, en: "Rewards", ar: "المكافآت" },
+    { m: 6, h: 956, en: "Sign in", ar: "تسجيل الدخول" },
+    { m: 11, h: 956, en: "Create account", ar: "إنشاء حساب" }
+  ],
   POS: [["p3","Menu","القائمة"],["p4","Cart & payment","السلة والدفع"],["p5","Tables","الطاولات"],["p6","Order details","تفاصيل الطلب"],["p7","Drinks","المشروبات"],["p1","Lock screen","شاشة القفل"],["p2","Login","تسجيل الدخول"]],
 
   /* planet official site captures (filled from live site) */
@@ -63,8 +77,8 @@ window.DATA = {
       about: { en: "A digital system for a national project. I designed its full UI and UX as part of my work at Link Business Solutions. Given the nature of the project, its details and screens remain confidential.", ar: "منظومة رقمية لمشروع وطني، صمّمتُ واجهاتها وتجربة استخدامها بالكامل ضمن عملي في Link Business Solutions. ونظرًا لطبيعة المشروع، تبقى تفاصيله وشاشاته سرّية." },
       meta: { en: ["Link client", "Full UI/UX", "Web dashboard", "Mobile app"], ar: ["عميل لدى Link", "UI/UX كامل", "لوحة تحكم للويب", "تطبيق للهاتف"] },
       sections: [ { type: "nda", t: { en: "What I designed", ar: "ما صمّمته" }, s: { en: "The screens stay private under the project agreement.", ar: "تبقى الشاشات خاصة وفق اتفاقية المشروع." }, items: [
-        { c: "WEB", en: "Web dashboard", ar: "لوحة تحكم للويب", den: "Designed end to end, from the first wireframe to the final interface.", dar: "صُمّمت بالكامل، من المخطط الأول حتى الواجهة النهائية." },
-        { c: "APP", en: "Mobile app", ar: "تطبيق للهاتف", den: "Designed end to end, in Arabic and English.", dar: "صُمّم بالكامل، باللغتين العربية والإنجليزية." } ] } ] },
+        { c: "WEB", en: "Web dashboard", ar: "لوحة تحكم للويب", den: "Designed end to end, from the first wireframe to the final interface.", dar: "صُمّمت بالكامل، من المخطط الأول حتى الواجهة النهائية.", kind: "web", img: "img/cl/nchr/web-login.webp", bg: "img/cl/nchr/web-blur.webp" },
+        { c: "APP", en: "Mobile app", ar: "تطبيق للهاتف", den: "Designed end to end, in Arabic and English.", dar: "صُمّم بالكامل، باللغتين العربية والإنجليزية.", kind: "app", img: "img/cl/nchr/app-login.webp", bg: "img/cl/nchr/app-blur.webp" } ] } ] },
     { id: "istatieh", name: { en: "Istatieh Decorations", ar: "ديكورات استيتية" }, sub: { en: "Ayoub Statieh", ar: "أيوب ستيتية" }, cover: "img/cl/istatieh/b00.webp",
       tag: { en: "Catalogue · Social · Website", ar: "كتالوج · وسائل التواصل · موقع" },
       theme: { bg: "#140608", fg: "#FBF2F2", muted: "#C9A6A9", accent: "#D3203A", logo: "#ffffff" },
@@ -204,6 +218,6 @@ window.DATA = {
     [21, "print", "free", "90 Al-La’eeb — stationery & print", "90 اللعيب — قرطاسية ومطبوعات"],
     [24, "social", "free", "Restaurant campaigns", "حملات مطاعم"],
     [25, "social", "free", "Social media posts", "منشورات وسائل التواصل"],
-    [22, "print", "free", "Book covers · Magic Knife & Assassin Decision", "أغلفة كتب · الخنجر السحري وقرار مأجور"]
+    [22, "print", "free", "Book covers · Magic Knife & Assassin Decision", "أغلفة كتب · السكين السحري وقرار مأجور"]
   ]
 };

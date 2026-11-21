@@ -47,7 +47,7 @@ setInterval(()=>{const L=D.ROT[root.lang]||D.ROT.en;rotIdx=(rotIdx+1)%L.length;t
   let x=0, v=0.5, dir=-1, boost=0, lastY=scrollY, gw=0;
   const measure=()=>{gw=tr.firstElementChild.getBoundingClientRect().width};
   measure(); addEventListener("resize",measure); document.fonts&&document.fonts.ready.then(measure);
-  addEventListener("scroll",()=>{const dy=scrollY-lastY;lastY=scrollY;if(dy!==0)dir=dy>0?-1:1;boost=Math.min(14,boost+Math.abs(dy)*.06)},{passive:true});
+  // steady, slow drift: scrolling no longer changes its speed or direction
   let vis=true; new IntersectionObserver(e=>{vis=e[0].isIntersecting}).observe(tr);
   (function loop(){
     if(vis&&!RM){boost*=.92; const speed=(v+boost)*dir; x+=speed; if(gw){if(x<=-gw)x+=gw;if(x>0)x-=gw} tr.style.transform=`translate3d(${x}px,0,0)`}
@@ -132,7 +132,38 @@ function buildLegend(){const L=$("#legend");L.innerHTML=D.SYS.map(s=>`<div class
 function buildDomains(){$("#domains").innerHTML=D.DOMAINS.map(d=>`<div><b>${T(d)}</b><span>${AR()?d.dar:d.den}</span></div>`).join("");$$("[data-nda]").forEach(b=>b.innerHTML=lockSvg+(AR()?"سرّي · محمي باتفاقية":"Confidential · NDA"))}
 
 /* app strip + POS */
-const sH=D.APPSTRIP.map(n=>`<img src="img/pd/m${n}.webp" alt="" loading="lazy" width="440" height="880">`).join("");$("#strip").innerHTML=sH+sH;
+/* interactive 3D phone */
+let P3=null;
+if($("#p3")&&window.Phone3D){P3=Phone3D.mount($("#p3"),{screens:D.APPSCREENS.map(x=>({src:`img/pd/m${x.m}.webp`,w:440,h:x.h,alt:x.en})),start:0,backLogo:"img/pd/logo.webp"})}
+/* ============ Link ECO showcase: business × platform × page ============ */
+const ECO={biz:0,plat:0,page:0,phone:null,
+  pages:[{en:"Home",ar:"الرئيسية"},{en:["Menu","Shop"],ar:["المنيو","المتجر"]},{en:"Product",ar:"المنتج"},{en:"Cart",ar:"السلة"}],
+  rimg:{web:["home","shop","product","cart"].map(k=>`img/eco/r-web-${k}.webp`),app:["home","shop","product","cart"].map(k=>`img/eco/r-app-${k}.webp`)},
+  rh:{app:[2188,1376,1559,1152]}};
+function ecoLabel(p){const v=AR()?p.ar:p.en;return Array.isArray(v)?v[ECO.biz]:v}
+function buildEcoTabs(){const t=$("#ecoPages");if(!t)return;t.innerHTML=ECO.pages.map((p,i)=>`<button role="tab" type="button" aria-selected="${i===ECO.page}" data-i="${i}">${ecoLabel(p)}</button>`).join("");
+  $$("button",t).forEach(b=>b.addEventListener("click",()=>{ECO.page=+b.dataset.i;$$("button",t).forEach(x=>x.setAttribute("aria-selected",x===b));ecoShow()}));
+  $("#ecoNote").textContent=ECO.biz?(AR()?"نسخة الملابس: التصميم نفسه بهوية ومنتجات متجر أزياء، أُعيد بناؤها للعرض.":"Clothing version: the same design with a fashion brand’s colors and products, rebuilt for this showcase."):(AR()?"شاشات مطعم كما صُمّمت للعميل.":"Restaurant screens as designed for the client.")}
+function ecoWeb(dir){const vp=$("#ecoVp");if(!vp)return;const lay=document.createElement("div");lay.className="eco-scr";
+  if(ECO.biz===0){lay.innerHTML=`<img src="${ECO.rimg.web[ECO.page]}" alt="" loading="lazy">`}
+  else{lay.innerHTML=`<div class="eco-zoom">${EcoClothing.web[ECO.page]()}</div>`;lay.firstChild.style.zoom=vp.clientWidth/1200}
+  const old=$$(".eco-scr",vp);vp.appendChild(lay);vp.scrollTop=0;
+  $("#ecoUrl").textContent=["linkeco.jo","linkeco.jo/"+(ECO.biz?"shop":"menu"),"linkeco.jo/product/"+(ECO.biz?"oversized-hoodie":"bbq-chicken-pizza"),"linkeco.jo/cart"][ECO.page];
+  if(RM||!old.length){old.forEach(o=>o.remove());return}
+  lay.classList.add(dir<0?"in-b":"in-f");requestAnimationFrame(()=>requestAnimationFrame(()=>{lay.classList.remove("in-f","in-b");old.forEach(o=>{o.classList.add("out");setTimeout(()=>o.remove(),520)})}))}
+function ecoShow(dir){const st=$("#ecoStage");if(!st)return;st.classList.toggle("biz-c",ECO.biz===1);
+  $("#ecoWeb").hidden=ECO.plat!==0;$("#ecoPhone").hidden=ECO.plat!==1;
+  if(ECO.plat===0)ecoWeb(dir);
+  else{if(!ECO.phone&&window.Phone3D){const scr=[];ECO.rimg.app.forEach((src,i)=>scr.push({src,w:440,h:ECO.rh.app[i]}));EcoClothing.app.forEach(fn=>scr.push({html:fn,w:390}));
+      ECO.phone=Phone3D.mount($("#ecoPhone"),{screens:scr,start:ECO.biz*4+ECO.page})}
+    else ECO.phone&&ECO.phone.show(ECO.biz*4+ECO.page)}}
+function seg(id,key){const g=$("#"+id);if(!g)return;const sync=()=>{const on=$$("button",g)[ECO[key]];$$("button",g).forEach(b=>b.setAttribute("aria-pressed",b===on));const ind=$(".seg-ind",g);ind.style.width=on.offsetWidth+"px";ind.style.transform=`translateX(${on.offsetLeft-4}px)`};
+  $$("button",g).forEach(b=>b.addEventListener("click",()=>{const v=+b.dataset.v;if(v===ECO[key])return;const d=v>ECO[key]?1:-1;ECO[key]=v;sync();buildEcoTabs();ecoShow(d)}));g._sync=sync;sync()}
+seg("ecoBiz","biz");seg("ecoPlat","plat");
+addEventListener("resize",()=>{clearTimeout(window._ez);window._ez=setTimeout(()=>{$$("#ecoVp .eco-zoom").forEach(z=>z.style.zoom=$("#ecoVp").clientWidth/1200);$$(".seg").forEach(g=>g._sync&&g._sync())},120)});
+function buildP3List(){const L=$("#p3list");if(!L)return;const cur=P3?P3.index:0;
+  L.innerHTML=D.APPSCREENS.map((x,i)=>`<button type="button" role="tab" aria-selected="${i===cur}" data-i="${i}"><span class="th"><img src="img/pd/m${x.m}.webp" alt="" loading="lazy"></span><span class="nm">${T(x)}</span><span class="no ltr">${String(i+1).padStart(2,"0")}</span></button>`).join("");
+  $$("button",L).forEach(b=>b.addEventListener("click",()=>{const i=+b.dataset.i;P3&&P3.show(i);$$("button",L).forEach(x=>x.setAttribute("aria-selected",x===b));if(innerWidth<900)$("#p3").scrollIntoView({behavior:RM?"auto":"smooth",block:"center"})}))}
 const posscr=$("#posscr"),posth=$("#posthumbs");let posI=0,posT;
 posscr.innerHTML=D.POS.map((p,i)=>`<img src="img/pd/${p[0]}.webp" alt="POS — ${p[1]}" loading="lazy" width="1440" height="1024" class="${i?"":"on"}">`).join("");
 posth.innerHTML=D.POS.map((p,i)=>`<button type="button" class="${i?"":"on"}" aria-label="${p[1]}"><img src="img/pd/${p[0]}.webp" alt="" loading="lazy"><i></i></button>`).join("");
@@ -201,7 +232,7 @@ function secHTML(s,ci,si){
   if(s.type==="site")return `<section class="cp-sec">${head}${s.pages&&s.pages.length?`${s.pages.length>1?`<div class="tabs rv-in cptabs" data-s="${si}">${s.pages.map((p,i)=>`<button role="tab" aria-selected="${i===0}" data-i="${i}">${T(p)}</button>`).join("")}</div>`:""}<div class="web-row rv-in${s.mobile?"":" solo"}"><div class="device"><div class="chrome"><div class="dots"><i></i><i></i><i></i></div><div class="url ltr">${ci.url.replace(/^https?:\/\//,"").replace(/\/$/,"")}</div></div><div class="viewport" data-cursor="Scroll"><img class="autoscroll cpweb" src="${s.pages[0].src}" width="${s.pages[0].w}" height="${s.pages[0].h}" alt=""></div></div>${s.mobile?`<div class="phone"><div class="scr"><img class="autoscroll" src="${s.mobile.src}" width="${s.mobile.w}" height="${s.mobile.h}" alt="" style="--dur:20s" data-speed="fixed"></div></div>`:""}</div>`:""}<div class="visit"><a class="btn pri" href="${ci.url}" target="_blank" rel="noopener">${AR()?"زيارة الموقع":"Visit the live site"} ↗</a></div></div></section>`;
   if(s.type==="book")return `<section class="cp-sec cp-book">${head}<div class="bk-mount rv-in" data-s="${si}" style="--r:${s.w/s.h}"></div></div></section>`;
   if(s.type==="apps")return `<section class="cp-sec">${head}<div class="g-apps">${s.items.map((src,i)=>`<figure class="phone rv-in" data-g="${i}" style="transition-delay:${i*90}ms"><div class="scr"><img src="${src}" alt="" loading="lazy"></div></figure>`).join("")}</div>${storeHTML(s.store)}</div></section>`;
-  if(s.type==="nda")return `<section class="cp-sec">${head}<div class="g-nda">${s.items.map((it,i)=>`<article class="cbox rv-in" style="transition-delay:${i*90}ms"><span class="redact"></span><div class="top"><span class="code ltr">${it.c}</span><span class="nda-badge">${lockSvg}${AR()?"سرّي · محمي":"Confidential · protected"}</span></div><h4>${T(it)}</h4><p>${AR()?it.dar:it.den}</p><div class="ghost" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div></article>`).join("")}</div></div></section>`;
+  if(s.type==="nda")return `<section class="cp-sec">${head}<div class="g-nda">${s.items.map((it,i)=>`<article class="cbox rv-in" style="transition-delay:${i*90}ms"><span class="redact"></span><div class="top"><span class="code ltr">${it.c}</span><span class="nda-badge">${lockSvg}${AR()?"سرّي · محمي":"Confidential · protected"}</span></div><h4>${T(it)}</h4><p>${AR()?it.dar:it.den}</p>${it.img?`<div class="nda-media ${it.kind||"web"}"><img class="nm-bg" src="${it.bg}" alt="" aria-hidden="true" loading="lazy"><figure class="nm-front"><div class="nm-frame">${(it.kind||"web")==="web"?`<div class="nm-bar"><i></i><i></i><i></i></div>`:""}<img src="${it.img}" alt="${T(it)}" loading="lazy"></div></figure><span class="nm-note">${lockSvg}${AR()?"الشاشات الداخلية محمية بموجب اتفاقية · المعروض شاشة تسجيل الدخول فقط":"Inner screens are protected by agreement · login screen shown only"}</span></div>`:`<div class="ghost" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>`}</article>`).join("")}</div></div></section>`;
   if(s.type==="ig"){const tiles=Array.from({length:s.count},(_,i)=>`<button type="button" class="ig-t" data-g="${i}" aria-label="${i+1}"><span class="ig-f"><img src="${s.base}1-${i+1}.webp" alt="" loading="lazy"></span></button>`).join("");
     return `<section class="cp-sec">${head}<div class="ig rv-in" data-s="${si}"><div class="ig-phone"><div class="ig-top ltr"><b>${s.handle}</b></div><div class="ig-prof"><div class="ig-av"><img src="${ci.logo}" alt=""></div><div class="ig-st ltr"><div><b>${s.count}</b><span>${AR()?"منشورات":"posts"}</span></div><div><b>4</b><span>${AR()?"أنماط":"themes"}</span></div></div></div><div class="ig-name">${T(ci.name)}</div><div class="ig-grid">${tiles}</div></div><div class="ig-side"><div class="ig-k">${AR()?"اختر النمط":"Pick a theme"}</div><div class="ig-themes">${Array.from({length:s.themes},(_,k)=>`<button type="button" aria-pressed="${k===0}" data-t="${k+1}"><span class="sw t${k+1}"></span>${AR()?"النمط":"Theme"} ${k+1}</button>`).join("")}</div><p class="ig-note">${AR()?"المحتوى نفسه في المنشورات التسعة، بتصميم مختلف لكل نمط. اضغط على أي منشور لتكبيره.":"Same nine posts, a different design per theme. Tap any post to enlarge it."}</p></div></div></div></section>`}
   if(s.type==="tubs"){const F=D.FLAVORS;return `<section class="cp-sec">${head}<div class="yalda-stage rv-in" id="ystage"><div class="glow"></div><canvas class="parts" id="yparts"></canvas><div class="yalda-info"><div class="k">YALDA · 5 KG</div><h4 id="yname">${T(F[0])}</h4><p>${AR()?"كريمة شوكولاتة بنكهة غنية، بعبوة ٥ كغ.":"Rich chocolate cream in a 5 kg tub."}</p><div class="flavors" id="yflv">${F.map((f,i)=>`<button type="button" aria-pressed="${i===0}" data-i="${i}"><i style="background:${f.sw}"></i>${T(f)}</button>`).join("")}</div><div class="drag-hint">↔ ${AR()?"اسحب العبوة لتدويرها":"Drag the tub to spin it"}</div></div><div class="tubwrap"><img class="tubfb" id="ytubfb" src="img/cl/yalda/tub-dark.webp" alt="YALDA tub"><canvas class="tub" id="ytub" aria-label="YALDA tub"></canvas></div></div><div class="yalda-row rv-in">${F.map((f,i)=>`<button type="button" data-i="${i}" style="background:${f.bg}" aria-label="${T(f)}"><img src="img/cl/yalda/tub-${f.k}.webp" alt="" loading="lazy"><span>${T(f)}</span></button>`).join("")}</div><div class="label-strip rv-in"><img id="ylabel" src="img/cl/yalda/dark.webp" alt="Flat label"><span class="cap">${AR()?"الملصق مفرودًا":"The label, flat"}</span></div></div></section>`}
@@ -324,11 +355,9 @@ function choreo(){
     $$(".card").forEach((c,i)=>gsap.fromTo(c,{y:70,opacity:0},{y:0,opacity:1,duration:1,ease:"power3.out",delay:(i%2)*.08,scrollTrigger:{trigger:c,start:"top 92%",toggleActions:TA}}));
     ScrollTrigger.create({trigger:"#planet",start:"top 55%",end:"bottom 45%",toggleClass:{targets:document.body,className:"pd"}});
     $$("#lines path").forEach(p=>{const len=p.getTotalLength();gsap.set(p,{strokeDasharray:len,strokeDashoffset:len})});
-    gsap.to("#lines path",{strokeDashoffset:0,stagger:.06,ease:"none",scrollTrigger:{trigger:"#map",start:"top 80%",end:"center 50%",scrub:.8}});
+    gsap.to("#lines path",{strokeDashoffset:0,stagger:.07,duration:1.1,ease:"power2.inOut",scrollTrigger:{trigger:"#map",start:"top 80%",toggleActions:"play none none none"},onComplete(){$$("#lines path").forEach(p=>{p.style.strokeDasharray="";p.style.strokeDashoffset=""})}});
     gsap.fromTo(".node",{scale:.4,opacity:0},{scale:1,opacity:1,stagger:.06,ease:"back.out(1.6)",duration:.7,scrollTrigger:{trigger:"#map",start:"top 75%",toggleActions:TA}});
     gsap.fromTo("#legend .row",{x:AR()?30:-30,opacity:0},{x:0,opacity:1,stagger:.05,duration:.6,scrollTrigger:{trigger:"#legend",start:"top 85%",toggleActions:TA}});
-    gsap.fromTo(".phones .phone",{y:140,opacity:0,rotateX:18},{y:0,opacity:1,rotateX:0,stagger:.12,duration:1.2,ease:"power4.out",scrollTrigger:{trigger:"#phones",start:"top 85%",toggleActions:TA}});
-    $$(".phones .phone").forEach(ph=>gsap.to(ph,{yPercent:-(+ph.dataset.par||0)/6,ease:"none",scrollTrigger:{trigger:"#phones",start:"top bottom",end:"bottom top",scrub:true}}));
     [".device",".tablet"].forEach(s=>$$(s).forEach(el=>{if(el.closest(".cp"))return;gsap.fromTo(el,{rotateX:22,y:80,transformPerspective:1400,opacity:0,scale:.94},{rotateX:0,y:0,opacity:1,scale:1,ease:"power3.out",scrollTrigger:{trigger:el,start:"top 95%",end:"top 45%",scrub:.8}})}));
     gsap.fromTo(".pd-logo img.main",{scale:.7,rotate:-6},{scale:1,rotate:0,ease:"none",scrollTrigger:{trigger:".pd-logo",start:"top bottom",end:"center center",scrub:.6}});
     gsap.fromTo("#tlfill",{scaleY:0},{scaleY:1,ease:"none",scrollTrigger:{trigger:"#tl",start:"top 70%",end:"bottom 60%",scrub:.5}});
@@ -344,7 +373,7 @@ function choreo(){
 /* ============ language ============ */
 function render(){
   rotIdx=0;rotEl.textContent=(D.ROT[root.lang]||D.ROT.en)[0];
-  buildMods();buildLegend();buildDomains();buildWork();buildClients();buildWeb();$("#pdstores")&&($("#pdstores").innerHTML=storeHTML("planet"));
+  buildMods();buildLegend();buildDomains();buildWork();buildClients();buildWeb();buildP3List();buildEcoTabs();ecoShow(0);$$(".seg").forEach(g=>g._sync&&g._sync());$("#pdstores")&&($("#pdstores").innerHTML=storeHTML("planet"));
   $$(".ksh").forEach(k=>{k._n=-1;setK(k,0);if(k._io){k._io.disconnect();k._io=null}});initK(document);
   window.__nfInit&&window.__nfInit();
   sizeAuto();
@@ -368,7 +397,7 @@ document.addEventListener("click",e=>{const a=e.target.closest('a[href^="#"]');i
 /* ============ boot ============ */
 buildMap();
 const saved=store("fa-lang");
-root.lang=saved==="en"||saved==="ar"?saved:"ar";root.dir=root.lang==="ar"?"rtl":"ltr";
+root.lang=saved==="en"||saved==="ar"?saved:"en";root.dir=root.lang==="ar"?"rtl":"ltr";
 render();choreo();onScroll();intro();
 addEventListener("load",()=>{sizeAuto();if(hasG)ScrollTrigger.refresh()});
 const h=location.hash.match(/^#c-(\w+)/);if(h){const i=D.CLIENTS.findIndex(c=>c.id===h[1]);if(i>-1)setTimeout(()=>openClient(i),600)}
