@@ -69,7 +69,26 @@ window.DATA = {
     offerat: { ios: "https://apps.apple.com/jo/app/offerat-%D8%A3%D9%88%D9%81%D8%B1%D8%A7%D8%AA/id6456388871", android: "https://play.google.com/store/apps/details?id=com.topdeliveryapp.customer" }
   },
 
+  QBSCREENS: [
+    { k: "dash", h: 1312, en: "Dashboard", ar: "لوحة التحكم", url: "qbridge.app/home/dashboard", den: "DMS, TMS and QMS at a glance: totals, pending approvals, overdue tasks and workflow performance.", dar: "نظرة على DMS وTMS وQMS: الإجماليات، والموافقات المعلّقة، والمهام المتأخرة، وأداء مسارات العمل." },
+    { k: "doc", h: 2205, en: "Document page", ar: "صفحة الوثيقة", url: "qbridge.app/library/document", den: "A controlled document moving from Draft to In Review, In Approval, Issued and Effective, with a live preview and its record.", dar: "وثيقة مضبوطة تنتقل من المسودة إلى المراجعة فالاعتماد فالإصدار فالسريان، مع معاينة حيّة وسجلّها الكامل." },
+    { k: "quality", h: 1376, en: "Quality event", ar: "حدث جودة", url: "qbridge.app/quality/events", den: "A quality event through investigation, RCA and CAPA planning to QA approval, with report, forms and audit trail.", dar: "حدث جودة يمرّ بالتحقيق، وتحليل الأسباب، وتخطيط الإجراءات التصحيحية، حتى اعتماد مدير الجودة، مع التقرير والنماذج وسجل التدقيق." },
+    { k: "print", h: 810, en: "Controlled print", ar: "الطباعة المضبوطة", url: "qbridge.app/documents/controlled-print", den: "Direct prints and print requests of documents in force, with the numbered copies they issued.", dar: "الطباعة المباشرة وطلبات طباعة الوثائق السارية، مع النسخ المرقّمة الصادرة عنها." }
+  ],
+  CREDS: {"k1":{"w":1000,"h":1414,"c":10,"r":14,"tw":100,"th":101,"m":[2,39,14,59,83,125,62,25,111,30,61,18,45,103,53,0,17,110,34,90,86,42,7,119,65,136,135,133,134,36,129,121,79,15,49,128,41,99,88,55,70,116,91,6,4,46,24,97,66,82,29,33,89,77,54,84,11,57,81,16,85,60,120,26,50,13,132,127,64,93,95,74,20,48,40,37,47,23,100,96,52,35,109,139,106,28,56,92,43,67,87,122,27,32,12,126,10,80,51,104,58,112,117,21,138,76,94,130,68,38,105,73,63,5,101,9,72,114,19,107,118,108,44,98,137,131,3,124,1,78,69,102,8,115,22,31,113,75,71,123]},"k2":{"w":1414,"h":1000,"c":14,"r":10,"tw":101,"th":100,"m":[38,128,118,112,4,48,59,41,79,94,44,86,104,40,113,138,31,134,132,98,96,21,122,60,56,55,68,72,117,50,70,105,133,131,121,100,26,81,46,83,75,108,115,126,69,25,90,123,53,97,120,0,10,78,7,5,33,9,99,130,2,27,18,58,11,66,64,34,45,101,47,61,17,36,116,92,91,42,20,15,139,74,110,129,13,137,24,6,29,28,124,54,95,49,51,8,84,106,37,30,87,82,63,32,14,77,71,35,43,125,88,1,3,111,62,12,73,52,57,103,65,85,67,135,107,80,114,19,93,119,136,102,39,76,127,89,109,23,22,16]}},
+
   CLIENTS: [
+    { id: "qbridge", name: { en: "QBridge Life Sciences", ar: "QBridge لعلوم الحياة" }, cover: "img/qb/logo-white.webp", coverFit: "contain", coverBg: "radial-gradient(circle at 50% 42%,#123a6b,#06101f 72%)",
+      tag: { en: "Enterprise platform · Full UI/UX", ar: "منصة مؤسسية · UI/UX كامل" },
+      theme: { bg: "#06101f", fg: "#EEF4FB", muted: "#9DB0C6", accent: "#2EA3D6", logo: "#0b1d36" },
+      logo: "img/qb/logo-white.webp", logoNote: true,
+      about: { en: "An enterprise platform for pharmaceutical companies and manufacturers: quality, documents, training and reports in four connected modules. I designed its full UI and UX at Link Business Solutions.", ar: "منصة مؤسسية لشركات الأدوية والمصانع: الجودة والوثائق والتدريب والتقارير في أربع وحدات مترابطة. صمّمتُ واجهاتها وتجربة استخدامها بالكامل ضمن عملي في Link Business Solutions." },
+      meta: { en: ["Link product", "QMS · DMS · TMS · RMS", "Full UI/UX", "Web platform"], ar: ["منتج Link", "QMS · DMS · TMS · RMS", "UI/UX كامل", "منصة ويب"] },
+      sections: [
+        { type: "wide", t: { en: "Dashboard", ar: "لوحة التحكم" }, items: [{ src: "img/qb/dash.webp", full: 1 }] },
+        { type: "wide", t: { en: "Document lifecycle & quality events", ar: "دورة حياة الوثيقة وأحداث الجودة" }, items: [{ src: "img/qb/doc.webp" }, { src: "img/qb/quality.webp" }] },
+        { type: "wide", t: { en: "Controlled print", ar: "الطباعة المضبوطة" }, items: [{ src: "img/qb/print.webp", full: 1 }] }
+      ] },
     { id: "nchr", name: { en: "National Centre for Human Rights", ar: "المركز الوطني لحقوق الإنسان" }, cover: "img/cl/nchr/logo.webp", coverFit: "contain", coverBg: "radial-gradient(circle at 50% 45%,#1d2533,#0b0d12 70%)",
       tag: { en: "National project · Confidential", ar: "مشروع وطني · سرّي" },
       theme: { bg: "#0b0d12", fg: "#EEF1F6", muted: "#A3ABB8", accent: "#8FA6C8", logo: "#0f131b" },
